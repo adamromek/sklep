@@ -1,0 +1,39 @@
+body{
+  background-color: #E5E5E5;
+}
+#pojemnik{
+	width: 1200px;
+}
+#towar{font-size: small; width: 800px;}
+#faktura{font-size: small; width: 100%;}
+
+label{
+padding-right: 0.1em;
+}
+
+input [type="text"]{
+	float: right;
+width: 50%;
+}
+
+#indeksT{width: 150px;}
+#nazwaT{width:450px;}
+#jm{width: 100px;}
+#ilosc{width: 100px;}
+#cena{width: 100px;}
+#vat{width: 100px;}
+#pkwiu{width: 100px;}
+#cena_brutto{width: 100px;}
+#kodKT{width: 150px;}
+#stan_mag{width:100px; }
+#data_zak{width: 100px;}
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+.btn{
+background-color: #7E7777;
+}
+
+.ui-autocomplete { height: 100%; overflow-y: scroll; overflow-x: hidden;}
+.ui-autocomplete-input{font-size: small;}

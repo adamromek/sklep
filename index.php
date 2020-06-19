@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;width: auto;}
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;width: 600px;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:0.3em;
   overflow:hidden;padding:5px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:1em;
@@ -70,16 +70,20 @@
 
 
  	 	   <label for="nr_faktury">Nr faktury</label>
- 	      <input type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" size="30" maxlength="30" tabindex="5" />
+ 	      <input type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
+	     
 	      <label for="data_zak">Data zakupu</label>
-		   <input type="text" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"    size="15" maxlength="15" tabindex="6" />
+		   <input type="text" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
+        
          <label for="id_f">Indeks faktury.   (może być nr faktury)</label>
-         <input type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>" size="30" maxlength="30" tabindex="7" />
+         <input type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
 
          <label for="indeks_dost">Indeks dostawcy</label>
-         <input id="indeks" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>" size="30" maxlength="30" tabindex="8" />
+         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  />
+        
          <label for="nazwa_dost">Nazwa dostawcy</label>
-  		   <input id="nazwaDost" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>" size="30" maxlength="30" tabindex="9" />
+  		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
+ 		  
  		   <input type="submit" value="Dodaj fakturę" />
 
 			</div>
@@ -87,13 +91,13 @@
 			<div id="towar">
 
 			<label for="indeks">Indeks towaru</label>
-			<input id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeksT']) ?>" size="13" maxlength="25" tabindex="10" required >
+			<input id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeksT']) ?>"  required >
 
 			<label for="nazwa">Nazwa towaru</label>
-			<input id="nazwaT" type="text" name="nazwaT" value="<?php echo ($_GET['nazwaT']) ?>" size="40" maxlength="60" tabindex="12" required >
+			<input id="nazwaT" type="text" name="nazwaT" value="<?php echo ($_GET['nazwaT']) ?>" required >
 
 			<label for="Jm">Jm </label>
-			<input type="text" name="jm" value="szt" size="5" maxlength="5" tabindex="13" required  >
+			<input type="text" name="jm" value="szt" >
 			
 			<label for="ilosc">Ilość</label>
 			<input type="text" name="ilosc" value="<?php echo ($_GET['ilosc']) ?>" autofocus size="5" maxlength="10" required >
@@ -128,6 +132,7 @@
 	</form> 
 
 </div>
+</div>
 <script>
 $(function() {
     $("#nazwaT").autocomplete({
@@ -136,14 +141,14 @@ $(function() {
              focus: function(event, ui) {
 	               $("#nazwaT").val(ui.item.value);
 	               $("#indeksT").val(ui.item.indeks);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
-	            /*   $("#jm").val(ui.item.jm);
+	               $("#jm").val(ui.item.jm);
 	               $("#vat").val(ui.item.vat);
 	               $("#ilosc").val(ui.item.ilosc);
 	               $("#cena").val(ui.item.cena);
 	               $("#cena_brutto").val(ui.item.cena_brutto);
-	               $("#pkwiu").val(ui.item.pkwiu);  */
+	               $("#pkwiu").val(ui.item.pkwiu);  
 	               $("#kodKT").val(ui.item.kodK);
-	              // $("#data_zak").val(ui.item.dataZak); 
+	               $("#data_zak").val(ui.item.dataZak); 
                   return false;
          },
             select: function(event, ui) {
@@ -154,9 +159,9 @@ $(function() {
                  $("#cena").val(ui.item.cena);
                  $("#ilosc").val(ui.item.ilosc);
                  $("#cena_brutto").val(ui.item.cena_brutto);
-                 $("#pkwiu").val(ui.item.pkwiu);
+                 $("#pkwiu").val(ui.item.pkwiu);  
                  $("#kodKT").val(ui.item.kodK);
-                 //$("#data_zak").val(ui.item.dataZak);
+                 $("#data_zak").val(ui.item.dataZak);
 								// alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
                 return false;
             }
@@ -225,6 +230,26 @@ $(function() {
                  $("#kodKT").val(ui.item.kod_k);
                //   $("#stan_mag").val(ui.item.stan);
 								 alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
+                return false;
+            }
+    });
+});
+
+$(function() {
+    $("#nazwa1").autocomplete({
+        source: "search2.php",
+             focus: function(event, ui) {
+					$("#indeksD").val(ui.item.id);
+               $("#nazwa1").val(ui.item.value);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
+              // $("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.id);
+                return false;
+         },
+            select: function(event, ui) {
+               $("#indeksD").val(ui.item.id);
+               $("#nazwa1").val(ui.item.value);
+              // $("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.id);
                 return false;
             }
     });
