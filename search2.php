@@ -17,7 +17,7 @@ if ($db->connect_error) {
 $searchTerm = $_GET['term'];
 
 // Fetch matched data from the database
-$query = $db->query("SELECT id_dostawcy,indeks, nazwa1 FROM dostawcy WHERE nazwa1 LIKE '%".$searchTerm."%' ORDER BY nazwa1 ASC");
+$query = $db->query("SELECT id_dostawcy,indeks, nazwa1, kraj FROM dostawcy WHERE nazwa1 LIKE '%".$searchTerm."%' ORDER BY nazwa1 ASC");
 
 // Generate array with skills data
 $skillData = array();
@@ -25,8 +25,8 @@ if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){
         $data['idD'] = $row['indeks'];
         $data['value'] = $row['nazwa1'];
-       // $data['ind'] = $row['indeks'];
-        //$data['kraj'] = $row['kraj'];
+        $data['ind'] = $row['indeks'];
+        $data['kraj'] = $row['kraj'];
         array_push($skillData, $data);
     }
 }
