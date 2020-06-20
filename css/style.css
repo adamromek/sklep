@@ -7,8 +7,14 @@ body{
 #towar{font-size: 18px; width: 90%;}
 #faktura{font-size: small; width: 50%;}
 
-label .lab{
+#form{
 	float: left;
+	
+}
+
+label .lab {
+	float: left;
+	
   	padding-right: 0.3em;
 	font-size: 18px;
 }
@@ -17,6 +23,7 @@ label .lab{
 input [type="text"]{
 	float: right;
 	width: 50%;
+	display: block;
 }
 
 #indeksT{width: 150px;}
@@ -35,10 +42,11 @@ input[type=text]:focus {
   background-color: lightblue;
 }
 .btn{
-background-color: red;
+	float: right;
+background-color: #7F7F7F;
 }
-
-.ui-autocomplete { height: 60%; overflow-y: scroll; overflow-x: hidden;}
+button{background-color: #B8ABAB; }
+.ui-autocomplete { height: 160px; overflow-y: scroll; overflow-x: hidden;}
 .ui-autocomplete-input{font-size: large;}
 
-#przerwa{height: 50px; background-color: #BFBFBF;}
+#przerwa{height: 20px; background-color: #BFBFBF;}

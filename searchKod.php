@@ -34,11 +34,11 @@ if($query->num_rows > 0){
       $data['vat'] = $row['vat'];
 		$data['ilosc'] = $row['ilosc'];
 		$data['cena_brutto'] = $row['cena_brutto'];
-		$data['cena'] = $row['cena_n_z'];
+		//$data['cena'] = $row['cena_n_z'];
 		//$data['$nr_fak	']	=$row["nr_faktury"];
 		//$data['$data_zak']	=$row["data_zak"];
 		//$data['stan']=$row["stan_mag"];
-   	$data['kodKT'] = $row['kod_kreskowy'];
+   	$data['kod_k'] = $row['kod_kreskowy'];
         array_push($skillData, $data);
     }
 }
