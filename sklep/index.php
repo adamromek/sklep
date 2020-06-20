@@ -1,27 +1,3 @@
-<?php 
- //$_SESSION['nazwa'] = wartosc;
- session_start();
-$_SESSION['index'] == 1;
-
-
-if(empty($_SESSION["nr_faktury"]))$_SESSION["nr_faktury"] = $_GET["nr_faktury"];
-	if(empty($_SESSION["data_zak"]))$_SESSION["data_zak"] = $_GET["data_zak"] ;
-		if(empty($_SESSION["id_f"]))$_SESSION["id_f"] = $_GET["id_f"] ;
-	if(empty($_SESSION["indeks_dost"]))$_SESSION["indeks_dost"] = $_GET["indeks_dost"] ;
-		if(empty($_SESSION["nazwa_dost"]))$_SESSION["nazwa_dost"] = $_GET["nazwa_dost"] ;
-
-
-
-	if($_SESSION['nr_faktury']) {
-echo "Sesja ;" .$_SESSION['nr_faktury'];
-	} else {
-		echo " Brak sesji: <br />";
-	}
-
- // zmienna potrzebna do prawidlowego wczytania includowanych plikow
-$add_site = true; 
-
-?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -44,11 +20,10 @@ $add_site = true;
 
 </head>
 <body>
-<nav><div id="top">Dostawcy:<a href="dostawcy.php">Powrót do dostawców</a></div>
-     <div id="top">Faktura:<a href="KoniecFaktury.php">Koniec faktury</a></div></nav>
 
-<header><h3>Wprowadzanie towaru - wyszukiwanie po indeksie, nazwie towaru lub kodach kreskowych</h3></header>
 <div id="pojemnik">
+
+<header><h2>Wprowadzanie towaru - wyszukiwanie po indeksie, nazwie towaru lub kodach kreskowych</h2></header>
 <!--
 <table class="tg">
 
@@ -89,8 +64,7 @@ $add_site = true;
 </table> -->
 
 <div id="form">
-	 	<form action="zapiszTowar.php" method="post" enctype="multipart/form-data"> 
-	 	
+	 	<form action="admin_addrecord2.php" method="post" enctype="multipart/form-data"> 
 
  			<div id="faktura">
 
@@ -98,8 +72,8 @@ $add_site = true;
  	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
  	      <input type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
 	     
-	      <label class="lab" for="data_zak">Data zakupu</label>
-		   <input type="text" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
+	      <label class="lab" for="data_zakF">Data zakupu</label>
+		   <input type="text" name="data_zakF" value="<?php echo ($_SESSION['data_zak']) ?>"   />
         
          <label class="lab" for="id_f">Indeks faktury.   (może być nr faktury)</label>
          <input type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
@@ -110,16 +84,17 @@ $add_site = true;
          <label class="lab" for="nazwa_dost">Nazwa dostawcy</label>
   		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
  		  
- 		 	</div>
- 		 	<div id="przerwa"></div>
+ 		   <input type="submit" value="Dodaj fakturę" />
+
+			</div>
 
 			<div id="towar">
 
 			<label class="lab" for="indeks">Indeks towaru</label>
-			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeks']) ?>"  required >
+			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeksT']) ?>"  required >
 
 			<label class="lab" for="nazwa">Nazwa towaru</label>
-			<input id="nazwaT" type="text" name="nazwa" value="<?php echo ($_GET['nazwa']) ?>" required >
+			<input id="nazwaT" type="text" name="nazwaT" value="<?php echo ($_GET['nazwaT']) ?>" required >
 
 			<label class="lab" for="Jm">Jm </label>
 			<input id="jm" type="text" name="jm" value="szt" >
@@ -152,16 +127,13 @@ $add_site = true;
 
         			<div id="button">               
 						<button>Dodaj nowy towar...</button>
-						
 					</div> 
 	</div>
-	<input class="btn" type="reset" value="Wyczyść rekord" >
+	
 	</form> 
 
 </div>
-
 </div>
-
 <script>
 $(function() {
     $("#nazwaT").autocomplete({
