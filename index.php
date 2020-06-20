@@ -23,8 +23,8 @@
 
 <div id="pojemnik">
 
-<header><h3>Wprowadzanie towaru - wyszukiwanie po indeksie, nazwie towaru lub kodach kreskowych</h3></header>
-
+<header><h2>Wprowadzanie towaru - wyszukiwanie po indeksie, nazwie towaru lub kodach kreskowych</h2></header>
+<!--
 <table class="tg">
 
 <thead>
@@ -61,7 +61,7 @@
   </tr>
   <input class="btn" type="reset" value="Wyczyść rekord" ></form>
 </form> 
-</table>
+</table> -->
 
 <div id="form">
 	 	<form action="admin_addrecord2.php" method="post" enctype="multipart/form-data"> 
@@ -69,19 +69,19 @@
  			<div id="faktura">
 
 
- 	 	   <label for="nr_faktury">Nr faktury</label>
+ 	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
  	      <input type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
 	     
-	      <label for="data_zak">Data zakupu</label>
-		   <input type="text" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
+	      <label class="lab" for="data_zakF">Data zakupu</label>
+		   <input type="text" name="data_zakF" value="<?php echo ($_SESSION['data_zak']) ?>"   />
         
-         <label for="id_f">Indeks faktury.   (może być nr faktury)</label>
+         <label class="lab" for="id_f">Indeks faktury.   (może być nr faktury)</label>
          <input type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
 
-         <label for="indeks_dost">Indeks dostawcy</label>
+         <label class="lab" for="indeks_dost">Indeks dostawcy</label>
          <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  />
         
-         <label for="nazwa_dost">Nazwa dostawcy</label>
+         <label class="lab" for="nazwa_dost">Nazwa dostawcy</label>
   		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
  		  
  		   <input type="submit" value="Dodaj fakturę" />
@@ -90,39 +90,40 @@
 
 			<div id="towar">
 
-			<label for="indeks">Indeks towaru</label>
-			<input id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeksT']) ?>"  required >
+			<label class="lab" for="indeks">Indeks towaru</label>
+			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeksT']) ?>"  required >
 
-			<label for="nazwa">Nazwa towaru</label>
+			<label class="lab" for="nazwa">Nazwa towaru</label>
 			<input id="nazwaT" type="text" name="nazwaT" value="<?php echo ($_GET['nazwaT']) ?>" required >
 
-			<label for="Jm">Jm </label>
-			<input type="text" name="jm" value="szt" >
+			<label class="lab" for="Jm">Jm </label>
+			<input id="jm" type="text" name="jm" value="szt" >
 			
 			<label for="ilosc">Ilość</label>
-			<input type="text" name="ilosc" value="<?php echo ($_GET['ilosc']) ?>" autofocus size="5" maxlength="10" required >
+			<input id="ilosc" type="text" name="ilosc" value="<?php echo ($_GET['ilosc']) ?>"  required >
 			
 			
-			<label>Cena netto wyliczana z brutto</label>
+			<label class="lab">Cena netto wyliczana z brutto</label>
 	<input type="text" name="bruttoZb" size="10" onkeyup="licz_Z_brutto(this.form)"> VAT lub RABAT 
-	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)"> Cena netto
+	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)"> Cena netto z wyliczenia: 
 	<input type="text" name="nettoZb" size="10">
-			<label>Cena netto</label>
-			<input type="text" name="cena_z" value="<?php echo ($_GET['cena_z']) ?> " size="10" maxlength="15" tabindex="14" required >
+			
+			<label class="lab">Cena netto</label>
+			<input id="cena" type="text" name="cena_z" value="<?php echo ($_GET['cena_z']) ?> "  required >
 			
 			
 
-			<label for="pkwiu">PKWiU</label>
-			<input type="text" name="pkwiu" value="<?php echo ($_GET['pkwiu']) ?>" size="10" maxlength="15" tabindex="15" >
-			<label for="vat">VAT</label>
-			<input type="text" name="vat" value="<?php echo ($_GET['vat']) ?>" size="5" tabindex="16" required >
-
-			<label for="kod_k">Kod kreskowy</label> 
-
-			<input id="kodKT" type="text" name="kod_k" value="<?php echo ($_GET['kod_k']) ?>" size="13" maxlength="13" tabindex="17" >
+			<label class="lab" for="pkwiu">PKWiU</label>
+			<input id="pkwiu" type="text" name="pkwiu" value="<?php echo ($_GET['pkwiu']) ?>"  >
 			
-			<label for="cena_brutto">Cena sprzedaży brutto</label> 
-			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo ($_GET['cena_brutto']) ?>" size="13" maxlength="13" tabindex="18" required  >
+			<label class="lab" for="vat">VAT</label>
+			<input id="vat" type="text" name="vat" value="<?php echo ($_GET['vat']) ?>"  required >
+
+			<label class="lab" for="kod_k">Kod kreskowy</label>
+			<input id="kodKT" type="text" name="kod_k" value="<?php echo ($_GET['kod_k']) ?>"  >
+			
+			<label class="lab" for="cena_brutto">Cena sprzedaży brutto</label> 
+			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo ($_GET['cena_brutto']) ?>"  required  >
 
         			<div id="button">               
 						<button>Dodaj nowy towar...</button>
@@ -160,7 +161,7 @@ $(function() {
                  $("#ilosc").val(ui.item.ilosc);
                  $("#cena_brutto").val(ui.item.cena_brutto);
                  $("#pkwiu").val(ui.item.pkwiu);  
-                 $("#kodKT").val(ui.item.kodK);
+                 $("#kodKT").val(ui.item.kodKT);
                  $("#data_zak").val(ui.item.dataZak);
 								// alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
                 return false;
@@ -181,7 +182,7 @@ $(function() {
 	               $("#cena").val(ui.item.cena);
 	               $("#cena_brutto").val(ui.item.cena_brutto);
 	               $("#pkwiu").val(ui.item.pkwiu); */
-	               $("#kodKT").val(ui.item.kod_k);
+	               $("#kodKT").val(ui.item.kodKT);
 	               //$("#stan_mag").val(ui.item.stan);  
                   return false;
          },
@@ -194,7 +195,7 @@ $(function() {
                  $("#ilosc").val(ui.item.ilosc);
                  $("#cena_brutto").val(ui.item.cena_brutto);
                  $("#pkwiu").val(ui.item.pkwiu);
-                 $("#kodKT").val(ui.item.kod_k);
+                 $("#kodKT").val(ui.item.kodKT);
                  // $("#stan_mag").val(ui.item.stan);
                 return false;
             }
@@ -214,7 +215,7 @@ $(function() {
 	               $("#cena").val(ui.item.cena);
 	               $("#cena_brutto").val(ui.item.cena_brutto);
 	               $("#pkwiu").val(ui.item.pkwiu); */
-	               $("#kodKT").val(ui.item.kod_k);
+	               $("#kodKT").val(ui.item.kodKT);
 	             //  $("#stan_mag").val(ui.item.stan);  
                   return false;
          },
@@ -227,7 +228,7 @@ $(function() {
                  $("#ilosc").val(ui.item.ilosc);
                  $("#cena_brutto").val(ui.item.cena_brutto);
                  $("#pkwiu").val(ui.item.pkwiu);
-                 $("#kodKT").val(ui.item.kod_k);
+                 $("#kodKT").val(ui.item.kodKT);
                //   $("#stan_mag").val(ui.item.stan);
 								 alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
                 return false;
@@ -239,14 +240,14 @@ $(function() {
     $("#nazwa1").autocomplete({
         source: "search2.php",
              focus: function(event, ui) {
-					$("#indeksD").val(ui.item.id);
+					$("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
               // $("#kraj").val(ui.item.kraj);
                //$("#id_dostawcy").val(ui.item.id);
                 return false;
          },
             select: function(event, ui) {
-               $("#indeksD").val(ui.item.id);
+               $("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);
               // $("#kraj").val(ui.item.kraj);
                //$("#id_dostawcy").val(ui.item.id);
@@ -255,5 +256,6 @@ $(function() {
     });
 });
 </script>
+<script src="script/funkcje.js" ></script>
 </body>
 </html>

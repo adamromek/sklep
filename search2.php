@@ -23,7 +23,7 @@ $query = $db->query("SELECT id_dostawcy,indeks, nazwa1 FROM dostawcy WHERE nazwa
 $skillData = array();
 if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){
-        $data['id'] = $row['id_dostawcy'];
+        $data['idD'] = $row['indeks'];
         $data['value'] = $row['nazwa1'];
        // $data['ind'] = $row['indeks'];
         //$data['kraj'] = $row['kraj'];
