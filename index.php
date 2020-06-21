@@ -96,19 +96,19 @@ $add_site = true;
 
 
  	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
- 	      <input type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
+ 	      <input id="nr_faktury" type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
+ 	              
+         <label class="lab" for="id_f">Indeks faktury.   (może być nr faktury)</label>
+         <input id="id_f" type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
 	     
 	      <label class="lab" for="data_zak">Data zakupu</label>
-		   <input type="text" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
-        
-         <label class="lab" for="id_f">Indeks faktury.   (może być nr faktury)</label>
-         <input type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
-
-         <label class="lab" for="indeks_dost">Indeks dostawcy</label>
-         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  />
+		   <input id="data_zak" type="date" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
         
          <label class="lab" for="nazwa_dost">Nazwa dostawcy</label>
   		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
+  		   
+  		   <label class="lab" for="indeks_dost">Indeks dostawcy</label>
+         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  />
  		  
  		 	</div>
  		 	<div id="przerwa"></div>
@@ -122,16 +122,16 @@ $add_site = true;
 			<input id="nazwaT" type="text" name="nazwa" value="<?php echo ($_GET['nazwa']) ?>" required >
 
 			<label class="lab" for="Jm">Jm </label>
-			<input id="jm" type="text" name="jm" value="szt" >
+			<input id="jm" type="text" name="jm" value="szt" ><br>
 			
-			<label for="ilosc">Ilość</label>
+			<label for="ilosc">Ilość</label>&nbsp;&nbsp;
 			<input id="ilosc" type="text" name="ilosc" value="<?php echo ($_GET['ilosc']) ?>"  required >
 			
 			
 			<label class="lab">Cena netto wyliczana z brutto</label>
 	<input type="text" name="bruttoZb" size="10" onkeyup="licz_Z_brutto(this.form)"> VAT lub RABAT 
 	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)"> Cena netto z wyliczenia: 
-	<input type="text" name="nettoZb" size="10">
+	<input type="text" name="nettoZb" size="10"><br>
 			
 			<label class="lab">Cena netto</label>
 			<input id="cena" type="text" name="cena_z" value="<?php echo ($_GET['cena_z']) ?> "  required >
@@ -161,6 +161,8 @@ $add_site = true;
 </div>
 
 </div>
+
+<div id="content"><p>Tutaj ma się pokazywać faktura</p></div>
 
 <script>
 $(function() {
