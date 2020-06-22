@@ -42,8 +42,8 @@ input [type="text"]{
 #pkwiu{width: 100px;}
 #cena_brutto{width: 100px;}
 #kodKT{width: 150px;}
-#stan_mag{width:100px; }
-#data_zak{width: 100px;}
+#stan_mag{width:80px; }
+
 
 input[type=text]:focus {
   background-color: #ADD8E6;
@@ -60,7 +60,8 @@ button{background-color: #B8ABAB; margin-top: 25px; }
 
 #faktura{height: 50px; width: 100%;border-style: solid; border-color: #7F7F7F; }
 #nr_faktury{width: 150px; margin:10px 5px 10px 5px; }
-#data_zak{width: 180px;}
+#data_zak{width: 150px;}
 #id_f{width: 150px;}
 #indeksD{width: 150px;}
 #nazwa1{width: 250px;}
+#data_zak{width: 150px;}

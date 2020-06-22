@@ -19,7 +19,6 @@ $_SESSION['dostawcy'] == 1;
 
 <?php
 // dane dostawców
-echo "Dzisiajsza data ";
 include("script/data.js");
 
  ?>
@@ -33,19 +32,13 @@ include("script/data.js");
     <label for="id_f">Indeks faktury.   (może być nr faktury)</label>
        <input type="text" name="id_f" size="30" maxlength="30" tabindex="7" placeholder="nr_faktury" required/><br>
     <label for="data_zak">Data zakupu</label>
-       <input type="data" name="data_zak" size="15" maxlength="15" tabindex="6" placeholder="2016-01-01" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/><br>
+       <input type="date" name="data_zak" size="15" maxlength="15" tabindex="6" placeholder="2016-01-01" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/><br>
 
     <label for="nazwa_dost">Nazwa dostawcy</label>
        <input id="nazwa1" type="text" name="nazwa_dost" size="30" maxleng="30" tabindex="9" required/>
 
     <label for="indeks_dost">Indeks dostawcy</label>
        <input id="indeksD" type="text" name="indeks_dost"  size="30" maxlength="30"tabindex="8" required/><br>
-
-       <label for="id_dostawcy">ID dostawcy</label>
-          <input id="id_dostawcy" type="text" name="id_dostawcy" size="30" maxleng="30" tabindex="9" required/>
-
-       <label for="kraj">Kraj</label>
-          <input id="kraj" type="text" name="kraj"  size="30" maxlength="30"tabindex="8" required/><br>
 
 	    <input type="submit" value="Dodaj fakturę" />
 
@@ -59,15 +52,15 @@ $(function() {
              focus: function(event, ui) {
 				   $("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
-               $("#kraj").val(ui.item.kraj);
-               $("#id_dostawcy").val(ui.item.ind);
+               //$("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.ind);
                 return false;
          },
             select: function(event, ui) {
                $("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);
-               $("#kraj").val(ui.item.kraj);
-               $("#id_dostawcy").val(ui.item.ind);
+               //$("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.ind);
                 return false;
             }
     });
