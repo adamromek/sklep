@@ -1,35 +1,56 @@
 body{
   background-color: #E5E5E5;
 }
+#top{width: 25%; background-color: #DBC8C8;}
 #pojemnik{
-	height: 250px;
-	width: 100%;
-	border-color: #FF0000;
+	height: 350px;
+	width: auto;
+	}
+button{display:none;}	
+
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
 }
-#towar{font-size: small; width: 90%;}
-#faktura{font-size: small; width: 50%;}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 5px;
+}
+
+#towar{font-size: small; width: 100%;}
+#faktura{font-size: small; width: 100%;}
 
 #form{
 	float: left;
-	
 }
-#content{height:150px; width:50%; background-color:pink; }
+#content{height:150px; width:100%; background-color:#F9B254; }
 
 
 label .lab {
 	float: left;
-	padding-top: 1em;
-  	padding-left: 1em;
+	padding: 5px 5px;
 	font-size: 25px;
 	margin-left: 15px;
 }
 
+input {
+  margin: 3px;
+}
 
 input [type="text"]{
 	float: right;
-	width: 50%;
+	width: 100%;
 	display: block;
 	padding-top: 1em;
+	padding-bottom: 2em;
 	margin:30px 5px 10px 5px;
 }
 
@@ -42,15 +63,15 @@ input [type="text"]{
 #pkwiu{width: 100px;}
 #cena_brutto{width: 100px;}
 #kodKT{width: 150px;}
-#stan_mag{width:80px; }
-
+#stan_mag{width:100px; }
+#data_zak{width: 60px;}
 
 input[type=text]:focus {
   background-color: #ADD8E6;
 }
 .btn{
 	float: right;
-background-color: #7F7F7F;
+background-color: #F9965C;
 }
 button{background-color: #B8ABAB; margin-top: 25px; }
 .ui-autocomplete { height: 350px; overflow-y: scroll; overflow-x: hidden;}
@@ -58,10 +79,9 @@ button{background-color: #B8ABAB; margin-top: 25px; }
 
 #przerwa{height: 20px; background-color: #BFBFBF;}
 
-#faktura{height: 50px; width: 100%;border-style: solid; border-color: #7F7F7F; }
+#faktura{width: 100%;}
 #nr_faktury{width: 150px; margin:10px 5px 10px 5px; }
 #data_zak{width: 150px;}
 #id_f{width: 150px;}
 #indeksD{width: 150px;}
-#nazwa1{width: 250px;}
-#data_zak{width: 150px;}
+#nazwa1{width: 150px;}

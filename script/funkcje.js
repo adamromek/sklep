@@ -1,6 +1,6 @@
 function licz_Z_brutto(x)
 {
-	x.nettoZb.value =(x.bruttoZb.value) / ((+x.vatZb.value / 100) +1 )
+	x.cena_z.value =(x.bruttoZb.value) / ((+x.vatZb.value / 100) +1 )
 }
  function marzaB(m) 
  {

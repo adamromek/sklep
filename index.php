@@ -14,6 +14,7 @@ if(empty($_SESSION["nr_faktury"]))$_SESSION["nr_faktury"] = $_GET["nr_faktury"];
 
 	if($_SESSION['nr_faktury']) {
 echo "Sesja ;" .$_SESSION['nr_faktury'];
+
 	} else {
 		echo " Brak sesji: <br />";
 	}
@@ -26,7 +27,7 @@ $add_site = true;
 <html >
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Baza Sklepu ZooNet</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -93,8 +94,8 @@ $add_site = true;
 	 	
 
  			<div id="faktura">
-
-
+<fieldset>
+	<legend>Faktura i dostawca</legend>
  	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
  	      <input id="nr_faktury" type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
  	              
@@ -108,13 +109,15 @@ $add_site = true;
   		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
   		   
   		   <label class="lab" for="indeks_dost">Indeks dostawcy</label>
-         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  />
- 		  
+         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  /><br>
+</fieldset> 		  
  		 	</div>
+<br>
  		 	<div id="przerwa"></div>
-
+<br>
 			<div id="towar">
-
+<fieldset>
+	<legend>Towar</legend>
 			<label class="lab" for="indeks">Indeks towaru</label>
 			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeks']) ?>"  required >
 
@@ -130,9 +133,8 @@ $add_site = true;
 			
 			<label class="lab">Cena netto wyliczana z brutto</label>
 	<input type="text" name="bruttoZb" size="10" onkeyup="licz_Z_brutto(this.form)"> VAT lub RABAT 
-	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)"> Cena netto z wyliczenia: 
-	<input type="text" name="nettoZb" size="10"><br>
-			
+	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)"> 
+				
 			<label class="lab">Cena netto</label>
 			<input id="cena" type="text" name="cena_z" value="<?php echo ($_GET['cena_z']) ?> "  required >
 			
@@ -142,27 +144,28 @@ $add_site = true;
 			<input id="pkwiu" type="text" name="pkwiu" value="<?php echo ($_GET['pkwiu']) ?>"  >
 			
 			<label class="lab" for="vat">VAT</label>
-			<input id="vat" type="text" name="vat" value="<?php echo ($_GET['vat']) ?>"  required >
+			<input id="vat" type="text" name="vat" value="<?php echo ($_GET['vat']) ?>"  required ><br>
 
 			<label class="lab" for="kod_k">Kod kreskowy</label>
 			<input id="kodKT" type="text" name="kod_k" value="<?php echo ($_GET['kod_k']) ?>"  >
 			
 			<label class="lab" for="cena_brutto">Cena sprzedaży brutto</label> 
 			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo ($_GET['cena_brutto']) ?>"  required  >
-
+</fieldset>
         			<div id="button">               
 						<button>Dodaj nowy towar...</button>
-						
+						&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn" type="reset" value="Wyczyść rekord" >
 					</div> 
+					
 	</div>
-	<input class="btn" type="reset" value="Wyczyść rekord" >
+	
 	</form> 
 
 </div>
 
-</div>
+</div><br>
 
-<div id="content"><p>Tutaj ma się pokazywać faktura</p></div>
+<div id="content"><br><p>Tutaj ma się pokazywać faktura</p></div>
 
 <script>
 $(function() {
@@ -239,12 +242,12 @@ $(function() {
              focus: function(event, ui) {
 	               $("#nazwaT").val(ui.item.value);
 	               $("#indeksT").val(ui.item.indeks);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
-	             /*  $("#jm").val(ui.item.jm);
+	               $("#jm").val(ui.item.jm);
 	               $("#vat").val(ui.item.vat);
 	               $("#ilosc").val(ui.item.ilosc);
 	               $("#cena").val(ui.item.cena);
 	               $("#cena_brutto").val(ui.item.cena_brutto);
-	               $("#pkwiu").val(ui.item.pkwiu); */
+	               $("#pkwiu").val(ui.item.pkwiu); 
 	               $("#kodKT").val(ui.item.kodKT);
 	             //  $("#stan_mag").val(ui.item.stan);  
                   return false;
@@ -260,7 +263,7 @@ $(function() {
                  $("#pkwiu").val(ui.item.pkwiu);
                  $("#kodKT").val(ui.item.kodKT);
                //   $("#stan_mag").val(ui.item.stan);
-								 alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
+					//			 alert("Selected: " + ui.item.value + " aka " + ui.item.label); 
                 return false;
             }
     });
