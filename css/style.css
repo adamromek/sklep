@@ -1,44 +1,87 @@
 body{
   background-color: #E5E5E5;
 }
+#top{width: 25%; background-color: #DBC8C8;}
 #pojemnik{
-	width: 100%;
-}
-#towar{font-size: 18px; width: 90%;}
-#faktura{font-size: small; width: 50%;}
+	height: 350px;
+	width: auto;
+	}
 
-label .lab{
+
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 5px;
+}
+
+#towar{font-size: small; width: 100%;}
+#faktura{font-size: small; width: 100%;}
+
+#form{
 	float: left;
-  	padding-right: 0.3em;
-	font-size: 18px;
+}
+#content{height:150px; width:100%; background-color:#F9B254; }
+
+
+label .lab {
+	float: left;
+	padding: 5px 5px;
+	font-size: 25px;
+	margin-left: 15px;
 }
 
+input {
+  margin: 3px;
+}
 
 input [type="text"]{
 	float: right;
-	width: 50%;
+	width: 100%;
+	display: block;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	margin:30px 5px 10px 5px;
 }
 
-#indeksT{width: 150px;}
+#indeksT{width: 150px; }
 #nazwaT{width:450px;}
 #jm{width: 100px;}
-#ilosc{width: 100px;}
+#ilosc{width: 100px; padding-left:2em;}
 #cena{width: 100px;}
 #vat{width: 100px;}
 #pkwiu{width: 100px;}
 #cena_brutto{width: 100px;}
 #kodKT{width: 150px;}
 #stan_mag{width:100px; }
-#data_zak{width: 100px;}
+#data_zak{width: 60px;}
 
 input[type=text]:focus {
-  background-color: lightblue;
+  background-color: #ADD8E6;
 }
 .btn{
-background-color: red;
+	float: right;
+background-color: #F9965C;
 }
+button{background-color: #B8ABAB; margin-top: 25px; }
+.ui-autocomplete { height: 350px; overflow-y: scroll; overflow-x: hidden;}
+.ui-autocomplete-input{font-size: 18px;}
 
-.ui-autocomplete { height: 60%; overflow-y: scroll; overflow-x: hidden;}
-.ui-autocomplete-input{font-size: large;}
+#przerwa{height: 20px; background-color: #BFBFBF;}
 
-#przerwa{height: 50px; background-color: #BFBFBF;}
+#faktura{width: 100%;}
+#nr_faktury{width: 150px; margin:10px 5px 10px 5px; }
+#data_zak{width: 150px;}
+#id_f{width: 150px;}
+#indeksD{width: 150px;}
+#nazwa1{width: 150px;}

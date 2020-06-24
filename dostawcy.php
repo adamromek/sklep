@@ -41,12 +41,6 @@ include("script/data.js");
     <label for="indeks_dost">Indeks dostawcy</label>
        <input id="indeksD" type="text" name="indeks_dost"  size="30" maxlength="30"tabindex="8" required/><br>
 
-       <label for="id_dostawcy">ID dostawcy</label>
-          <input id="id_dostawcy" type="text" name="id_dostawcy" size="30" maxleng="30" tabindex="9" required/>
-
-       <label for="kraj">Kraj</label>
-          <input id="kraj" type="text" name="kraj"  size="30" maxlength="30"tabindex="8" required/><br>
-
 	    <input type="submit" value="Dodaj fakturę" />
 
  </div>
@@ -59,15 +53,15 @@ $(function() {
              focus: function(event, ui) {
 				   $("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);  //wyszukujemy po nazwie, równocześnie pokazuje indeks a dopiero po kliknięciu id
-               $("#kraj").val(ui.item.kraj);
-               $("#id_dostawcy").val(ui.item.ind);
+               //$("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.ind);
                 return false;
          },
             select: function(event, ui) {
                $("#indeksD").val(ui.item.idD);
                $("#nazwa1").val(ui.item.value);
-               $("#kraj").val(ui.item.kraj);
-               $("#id_dostawcy").val(ui.item.ind);
+               //$("#kraj").val(ui.item.kraj);
+               //$("#id_dostawcy").val(ui.item.ind);
                 return false;
             }
     });
