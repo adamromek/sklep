@@ -1,10 +1,12 @@
+
 body{
   background-color: #E5E5E5;
 }
-#top{width: 25%; background-color: #DBC8C8;}
-#pojemnik{
+#top{width: 25%; background-color: #F9B254;}
+div#pojemnik{
+	position: static;
 	height: 350px;
-	width: auto;
+	width: 100%;
 	}
 
 
@@ -25,13 +27,14 @@ legend {
   padding: 5px 5px;
 }
 
-#towar{font-size: small; width: 100%;}
-#faktura{font-size: small; width: 100%;}
+#towar{font-size: small; width: auto;}
+#faktura{font-size: small; width: auto;}
 
 #form{
 	float: left;
+	width: auto;
 }
-#content{height:150px; width:100%; background-color:#F9B254; }
+div#content{width:100%; background-color:#F9B254; }
 
 
 label .lab {
@@ -69,11 +72,16 @@ input [type="text"]{
 input[type=text]:focus {
   background-color: #ADD8E6;
 }
+
+#przycisk{height: 50px; width:auto;  background-color:#BFBFBF ; margin: 5px 3px;}
+
 .btn{
 	float: right;
-background-color: #F9965C;
+	background-color: #F9965C;
+	margin-top: 5px;
 }
-button{background-color: #B8ABAB; margin-top: 25px; }
+#button{background-color: #B8ABAB; margin-top: 5px; }
+
 .ui-autocomplete { height: 350px; overflow-y: scroll; overflow-x: hidden;}
 .ui-autocomplete-input{font-size: 18px;}
 

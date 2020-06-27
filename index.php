@@ -4,20 +4,29 @@
 $_SESSION['index'] == 1;
 
 
-if(empty($_SESSION["nr_faktury"]))$_SESSION["nr_faktury"] = $_GET["nr_faktury"];
-	if(empty($_SESSION["data_zak"]))$_SESSION["data_zak"] = $_GET["data_zak"] ;
-		if(empty($_SESSION["id_f"]))$_SESSION["id_f"] = $_GET["id_f"] ;
-	if(empty($_SESSION["indeks_dost"]))$_SESSION["indeks_dost"] = $_GET["indeks_dost"] ;
-		if(empty($_SESSION["nazwa_dost"]))$_SESSION["nazwa_dost"] = $_GET["nazwa_dost"] ;
+if (empty($_SESSION["nr_faktury"])) {
+    $_SESSION["nr_faktury"] = $_GET["nr_faktury"];
+}
+    if (empty($_SESSION["data_zak"])) {
+        $_SESSION["data_zak"] = $_GET["data_zak"] ;
+    }
+        if (empty($_SESSION["id_f"])) {
+            $_SESSION["id_f"] = $_GET["id_f"] ;
+        }
+    if (empty($_SESSION["indeks_dost"])) {
+        $_SESSION["indeks_dost"] = $_GET["indeks_dost"] ;
+    }
+        if (empty($_SESSION["nazwa_dost"])) {
+            $_SESSION["nazwa_dost"] = $_GET["nazwa_dost"] ;
+        }
 
 
 
-	if($_SESSION['nr_faktury']) {
-echo "Sesja ;" .$_SESSION['nr_faktury'];
-
-	} else {
-		echo " Brak sesji: <br />";
-	}
+    if ($_SESSION['nr_faktury']) {
+        echo "Faktura nr:" .$_SESSION['nr_faktury'];
+    } else {
+        echo " Brak faktury: <br />";
+    }
 
  // zmienna potrzebna do prawidlowego wczytania includowanych plikow
 $add_site = true;
@@ -90,26 +99,26 @@ $add_site = true;
 </table> -->
 
 <div id="form">
-	 	<form action="zapiszTowar.php" method="post" enctype="multipart/form-data">
+	 	<form action="index.php?go=zapiszTowar" method="post" enctype="multipart/form-data">
 
 
  			<div id="faktura">
 <fieldset>
 	<legend>Faktura i dostawca</legend>
  	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
- 	      <input id="nr_faktury" type="text" name="nr_faktury" value="<?php echo ($_SESSION['nr_faktury'])?>" />
+ 	      <input id="nr_faktury" type="text" name="nr_faktury" value="<?php echo($_SESSION['nr_faktury'])?>" />
 
          <label class="lab" for="id_f">Indeks faktury.   (może być nr faktury)</label>
-         <input id="id_f" type="text" name="id_f" value="<?php echo ($_SESSION['id_f']) ?>"  />
+         <input id="id_f" type="text" name="id_f" value="<?php echo($_SESSION['id_f']) ?>"  />
 
 	      <label class="lab" for="data_zak">Data zakupu</label>
-		   <input id="data_zak" type="date" name="data_zak" value="<?php echo ($_SESSION['data_zak']) ?>"   />
+		   <input id="data_zak" type="date" name="data_zak" value="<?php echo($_SESSION['data_zak']) ?>"   />
 
          <label class="lab" for="nazwa_dost">Nazwa dostawcy</label>
-  		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo ($_SESSION['nazwa_dost']) ?>"  />
+  		   <input id="nazwa1" type="text" name="nazwa_dost" value="<?php echo($_SESSION['nazwa_dost']) ?>"  />
 
   		   <label class="lab" for="indeks_dost">Indeks dostawcy</label>
-         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo ($_SESSION['indeks_dost']) ?>"  /><br>
+         <input id="indeksD" type="text" name="indeks_dost" value="<?php echo($_SESSION['indeks_dost']) ?>"  /><br>
 </fieldset>
  		 	</div>
 <br>
@@ -119,16 +128,16 @@ $add_site = true;
 <fieldset>
 	<legend>Towar</legend>
 			<label class="lab" for="indeks">Indeks towaru</label>
-			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo ($_GET['indeks']) ?>"  required >
+			<input class="lab" id="indeksT" type="text" name="indeks"  value="<?php echo($_GET['indeks']) ?>"  required >
 
 			<label class="lab" for="nazwa">Nazwa towaru</label>
-			<input id="nazwaT" type="text" name="nazwa" value="<?php echo ($_GET['nazwa']) ?>" required >
+			<input id="nazwaT" type="text" name="nazwa" value="<?php echo($_GET['nazwa']) ?>" required >
 
 			<label class="lab" for="Jm">Jm </label>
-			<input id="jm" type="text" name="jm" value="szt" ><br>
+			<input id="jm" type="text" name="jm" value="szt" >
 
 			<label for="ilosc">Ilość</label>&nbsp;&nbsp;
-			<input id="ilosc" type="text" name="ilosc" value="<?php echo ($_GET['ilosc']) ?>"  required >
+			<input id="ilosc" type="text" name="ilosc" value="<?php echo($_GET['ilosc']) ?>"  required ><br>
 
 
 			<label class="lab">Cena netto wyliczana z brutto</label>
@@ -136,37 +145,35 @@ $add_site = true;
 	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)">
 
 			<label class="lab">Cena netto</label>
-			<input id="cena" type="text" name="cena_z" value="<?php echo ($_GET['cena_z']) ?> "  required >
+			<input id="cena" type="text" name="cena_z" value="<?php echo($_GET['cena_z']) ?> "  required >
 
 
 
 			<label class="lab" for="pkwiu">PKWiU</label>
-			<input id="pkwiu" type="text" name="pkwiu" value="<?php echo ($_GET['pkwiu']) ?>"  >
+			<input id="pkwiu" type="text" name="pkwiu" value="<?php echo($_GET['pkwiu']) ?>"  >
 
 			<label class="lab" for="vat">VAT</label>
-			<input id="vat" type="text" name="vat" value="<?php echo ($_GET['vat']) ?>"  required ><br>
+			<input id="vat" type="text" name="vat" value="<?php echo($_GET['vat']) ?>"  required ><br>
 
 			<label class="lab" for="kod_k">Kod kreskowy</label>
-			<input id="kodKT" type="text" name="kod_k" value="<?php echo ($_GET['kod_k']) ?>"  >
+			<input id="kodKT" type="text" name="kod_k" value="<?php echo($_GET['kod_k']) ?>"  >
 
 			<label class="lab" for="cena_brutto">Cena sprzedaży brutto</label>
-			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo ($_GET['cena_brutto']) ?>"  required  >
+			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo($_GET['cena_brutto']) ?>"  required  >
 </fieldset>
         			<div id="przycisk">
 						<button id="button">Dodaj nowy towar...</button>
-						&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn" type="reset" value="Wyczyść rekord" >
-						
+						<button class="btn" type="reset">Wyczyść rekord</button>
+
 <?php
-if($_SESSION['nr_faktury'] ){
-	$button = "block";
-}
-else
-{
-	$button = "none";
+if ($_SESSION['nr_faktury']) {
+    $button = "visible";
+} else {
+    $button = "hidden";
 }
 ?>
 					</div>
-				
+
 	</div>
 
 
@@ -174,9 +181,26 @@ else
 
 </div>
 
-</div><br>
+</div>
 
-<div id="content"><br><p>Tutaj ma się pokazywać faktura</p></div>
+<div id="content"><br><p>Tutaj ma się pokazywać faktura</p>
+<?php
+    	// zmienna $go przekazana metoda GET
+    $go = $_GET['go'];
+   
+      // sprawdzamy czy zmienna $go nie jest pusta
+      if(!empty($go)) {
+      	// sprawdzamy czy plik o danej nazwie istnieje
+      	if(is_file("page/$go.php")  ) include "page/$go.php";
+      
+      	// jezeli plik nie istnieje wyswietla się komunikat
+      	else echo "<br />Nie ma takiej strony w katalogu page :-(";
+      } 	if(is_file("$go.php")) include "$go.php";
+      // jezeli zmienna $go jest pusta wyswietla się strona glowna
+      else  "start.html";
+  
+?>
+</div>
 
 <script>
 $(function() {
@@ -193,7 +217,7 @@ $(function() {
 	               $("#cena_brutto").val(ui.item.cena_brutto);
 	               $("#pkwiu").val(ui.item.pkwiu);
 	               $("#kodKT").val(ui.item.kodK);
-	               $("#data_zak").val(ui.item.dataZak);
+	               //$("#data_zak").val(ui.item.dataZak);
                   return false;
          },
             select: function(event, ui) {
@@ -206,7 +230,7 @@ $(function() {
                  $("#cena_brutto").val(ui.item.cena_brutto);
                  $("#pkwiu").val(ui.item.pkwiu);
                  $("#kodKT").val(ui.item.kodKT);
-                 $("#data_zak").val(ui.item.dataZak);
+                 //$("#data_zak").val(ui.item.dataZak);
 								// alert("Selected: " + ui.item.value + " aka " + ui.item.label);
                 return false;
             }
@@ -300,7 +324,7 @@ $(function() {
     });
 });
 $(document).ready(function () {
-document.getElementById('button').style.display = "<?php print $button; ?>";	
+document.getElementById('button').style.visibility= "<?php print $button; ?>";
 })
 
 </script>
