@@ -5,7 +5,6 @@ body{
 #top{width: 25%; background-color: #F9B254;}
 div#pojemnik{
 	position: static;
-	height: 350px;
 	width: 100%;
 	}
 
@@ -27,14 +26,17 @@ legend {
   padding: 5px 5px;
 }
 
-#towar{font-size: small; width: auto;}
-#faktura{font-size: small; width: auto;}
+#towar{font-size: small; width: 100%;}
+#faktura{font-size: small; width: 100%;}
 
 #form{
 	float: left;
-	width: auto;
+	width: 100%;
 }
-div#content{width:100%; background-color:#F9B254; }
+div#content{width:100%; 
+				background-color:#F9B254; 
+				margin-top: 400px;				
+				}
 
 
 label .lab {

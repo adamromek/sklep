@@ -9,11 +9,11 @@ $_SESSION['dostawcy'] == 1;
 <head>
 <meta charset="utf-8" />
 <title>Dostawcy</title>
-<link href="style/style.css" type="text/css" rel="stylesheet" media="all" />
 <!-- jQuery UI library -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all" />
 </head>
 <body>
 
@@ -33,7 +33,7 @@ include("script/data.js");
     <label for="id_f">Indeks faktury.   (może być nr faktury)</label>
        <input type="text" name="id_f" size="30" maxlength="30" tabindex="7" placeholder="nr_faktury" required/><br>
     <label for="data_zak">Data zakupu</label>
-       <input type="data" name="data_zak" size="15" maxlength="15" tabindex="6" placeholder="2016-01-01" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/><br>
+       <input type="date" name="data_zak" size="15" /><br>
 
     <label for="nazwa_dost">Nazwa dostawcy</label>
        <input id="nazwa1" type="text" name="nazwa_dost" size="30" maxleng="30" tabindex="9" required/>

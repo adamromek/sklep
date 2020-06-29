@@ -103,9 +103,6 @@ $sprawdzF->execute();
 $sprawdzF->bind_result($col1, $col2);
 $sprawdzF->fetch();
 $sprawdzF->close();
-
-echo "<br />Faktura w bazie nr:", $col1 ,"<br />";
-   
 	
 if($nr_faktury == $col1) 
 {	
@@ -113,8 +110,6 @@ if($nr_faktury == $col1)
 
 	} else 
 	{
-	printf("<br />Wstawiamy nową fakturę : %s ", $nr_faktury);
-	
 $stmtf = $mysqli->prepare("INSERT INTO faktura (indeks, nr_faktury, data_zak, id_dostawcy) VALUES (?,?,?,?)");
 $stmtf->bind_param('sssi',$id_f, $nr_faktury, $data_zak, $id_dostawcy);	
 $stmtf->execute();
@@ -142,8 +137,6 @@ $stmtts->bind_param('ssssis',$indeks, $nazwa, $jm, $pkwiu, $vat, $cena_brutto);
 $stmtts->execute();
 $stmtts->close();
 
-printf("<br /> Dodano towary: %s",$stmt->affected_rows);
-echo " Nazwa towaru: " .$nazwa. "  Cena Sprzedaży Brutto" .$cena_brutto. "<br />";
 }
 	if($col11) {
 
