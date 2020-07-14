@@ -34,10 +34,10 @@ legend {
 	width: 100%;
 }
 div#content{width:100%; 
-				background-color:#F9B254; 
+				background-color: #ACF2A2; 
 				margin-top: 400px;				
 				}
-
+p{background-color: blanchedalmond;}
 
 label .lab {
 	float: left;
@@ -62,14 +62,15 @@ input [type="text"]{
 #indeksT{width: 150px; }
 #nazwaT{width:450px;}
 #jm{width: 100px;}
-#ilosc{width: 100px; padding-left:2em;}
+#ilosc{width: 70px; }
 #cena{width: 100px;}
-#vat{width: 100px;}
+#vat{width: 50px;}
 #pkwiu{width: 100px;}
 #cena_brutto{width: 100px;}
-#kodKT{width: 150px;}
+#kodKT{width: 250px; text-align: right;}
 #stan_mag{width:100px; }
 #data_zak{width: 60px;}
+#marza{width: 50px;}
 
 input[type=text]:focus {
   background-color: #ADD8E6;
@@ -80,9 +81,9 @@ input[type=text]:focus {
 .btn{
 	float: right;
 	background-color: #F9965C;
-	margin-top: 5px;
+	margin: 10px 10px;
 }
-#button{background-color: #B8ABAB; margin-top: 5px; }
+#button{background-color: #B8ABAB; margin: 10px 10px; border-radius: 8px; }
 
 .ui-autocomplete { height: 350px; overflow-y: scroll; overflow-x: hidden;}
 .ui-autocomplete-input{font-size: 18px;}
@@ -95,3 +96,7 @@ input[type=text]:focus {
 #id_f{width: 150px;}
 #indeksD{width: 150px;}
 #nazwa1{width: 150px;}
+
+table, th, td {
+	border-collapse: collapse;
+	border:1px solid black;}

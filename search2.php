@@ -7,15 +7,14 @@ $dbName     = "zoonet_alaska";
 
 // Create database connection
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-
+$db -> query("SET NAMES 'utf8'");
 // Check connection
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
 // Get search term
-$searchTerm = $_GET['term'];
-
+$searchTerm = $db -> real_escape_string($_GET['term']);
 // Fetch matched data from the database
 $query = $db->query("SELECT id_dostawcy,indeks, nazwa1 FROM dostawcy WHERE nazwa1 LIKE '%".$searchTerm."%' ORDER BY nazwa1 ASC");
 

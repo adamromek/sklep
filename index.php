@@ -39,70 +39,24 @@ $add_site = true;
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Baza Sklepu ZooNet</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;width: 600px;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:0.3em;
-  overflow:hidden;padding:5px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:1em;
-  font-weight:normal;overflow:hidden;padding:5px 5px;word-break:normal;width: auto;}
-.tg .tg-0lax{text-align:left;vertical-align:top;background-color: #BFBFBF;font-family:Arial, sans-serif;font-size:0.5em;}
-</style>
 <link type="text/css" href="css/style.css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 </head>
 <body>
 <nav><div id="top">Dostawcy:<a href="dostawcy.php">Powrót do dostawców</a></div>
-     <div id="top">Faktura:<a href="KoniecFaktury.php">Koniec faktury</a></div></nav>
+     <div id="top">Faktura:<a href="KoniecFaktury.php">Koniec faktury</a></div>
+     </nav>
 
 <header><h3>Wprowadzanie towaru - wyszukiwanie po indeksie, nazwie towaru lub kodach kreskowych</h3></header>
 <div id="pojemnik">
-<!--
-<table class="tg">
 
-<thead>
-  <tr>
-  	 <th class="tg-0lax">Lp</th>
-    <th class="tg-0lax">Indeks:</th>
-    <th class="tg-0lax">Nazwa towaru</th>
-    <th class="tg-0lax">Jm</th>
-    <th class="tg-0lax">Ilość</th>
-    <th class="tg-0lax">Cena netto zakupu</th>
-    <th class="tg-0lax">VAT</th>
-    <th class="tg-0lax">PKWiU</th>
-    <th class="tg-0lax">Cena brutto sprzedaży</th>
-    <th class="tg-0lax">Kod kreskowy</th>
-    <th class="tg-0lax">Data zakupów</th>
-   </tr>
-</thead>
-<tbody>
-<form>
-  <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"><input id="indeks" type="text" name="indeks" /></td>
-    <td class="tg-0lax"><input id="nazwa" type="text" name="nazwa" /></td>
-    <td class="tg-0lax"><input id="jm" type="text" name="jm" /></td>
-    <td class="tg-0lax"><input id="ilosc" type="text" name="ilosc" /></td>
-    <td class="tg-0lax"><input id="cena" type="text" name="cena" /> </td>
-    <td class="tg-0lax"><input id="vat" type="text" name="vat" /></td>
-    <td class="tg-0lax"><input id="pkwiu" type="text" name="pkwiu" /></td>
-    <td class="tg-0lax"><input id="cena_brutto" type="text" name="cena_brutto" /></td>
-    <td class="tg-0lax"><input id="kodK" type="text" name="kodK" /></td>
-    <td class="tg-0lax"><input id="data_zak" type="text" name="data_zak" /></td>
-
-
-  </tr>
-  <input class="btn" type="reset" value="Wyczyść rekord" ></form>
-</form>
-</table> -->
 
 <div id="form">
 	 	<form action="index.php?go=zapiszTowar" method="post" enctype="multipart/form-data">
 
 
- 			<div id="faktura">
+<div id="faktura">
 <fieldset>
 	<legend>Faktura i dostawca</legend>
  	 	   <label class="lab" for="nr_faktury">Nr faktury</label>
@@ -137,11 +91,11 @@ $add_site = true;
 			<input id="jm" type="text" name="jm" value="szt" >
 
 			<label for="ilosc">Ilość</label>&nbsp;&nbsp;
-			<input id="ilosc" type="text" name="ilosc" value="<?php echo($_GET['ilosc']) ?>"  required ><br>
+			<input id="ilosc" type="text" name="ilosc" value="<?php echo($_GET['ilosc']) ?>"  required >
 
 
 			<label class="lab">Cena netto wyliczana z brutto</label>
-	<input type="text" name="bruttoZb" size="10" onkeyup="licz_Z_brutto(this.form)"> VAT lub RABAT
+	<input type="text" name="bruttoZb" size="10" onkeyup="licz_Z_brutto(this.form)"><br> VAT lub RABAT
 	<input type="text" name="vatZb" size="5" onkeyup="licz_Z_brutto(this.form)">
 
 			<label class="lab">Cena netto</label>
@@ -153,10 +107,20 @@ $add_site = true;
 			<input id="pkwiu" type="text" name="pkwiu" value="<?php echo($_GET['pkwiu']) ?>"  >
 
 			<label class="lab" for="vat">VAT</label>
-			<input id="vat" type="text" name="vat" value="<?php echo($_GET['vat']) ?>"  required ><br>
+			<input id="vat" type="text" name="vat" value="<?php echo($_GET['vat']) ?>"  required >
 
 			<label class="lab" for="kod_k">Kod kreskowy</label>
 			<input id="kodKT" type="text" name="kod_k" value="<?php echo($_GET['kod_k']) ?>"  >
+<?php	
+$cena_n = ($_GET['cena_z']);
+$vat = 	($_GET['vat']);
+$cena_brutto = ($_GET['cena_brutto']);	
+$brutto =number_format((($cena_n*$vat/100)+$cena_n), 2, '.', '');
+$razem = number_format(($cena_n * $ilosc), 2, '.', '');
+$marza = number_format((( $cena_brutto / $brutto )*100-100), 2, '.', '');		
+?>	
+			<label class="lab" for="marza">Marża</label>
+			<input id="marza" type="number" name="marza" onkeyup="marzaN(this.form)"> 
 
 			<label class="lab" for="cena_brutto">Cena sprzedaży brutto</label>
 			<input type="text" id="cena_brutto" name="cena_brutto" value="<?php echo($_GET['cena_brutto']) ?>"  required  >
@@ -183,7 +147,7 @@ if ($_SESSION['nr_faktury']) {
 
 </div>
 
-<div id="content"><br><p>Tutaj ma się pokazywać faktura</p>
+<div id="content">
 <?php
     	// zmienna $go przekazana metoda GET
     $go = $_GET['go'];
@@ -235,7 +199,7 @@ $(function() {
                 return false;
             }
     });
-});
+}); 
 
 $(function() {
     $("#indeksT").autocomplete({
@@ -323,11 +287,18 @@ $(function() {
             }
     });
 });
-$(document).ready(function () {
-document.getElementById('button').style.visibility= "<?php print $button; ?>";
+ $(document).ready(function () {
+var btn = document.getElementById('button').style.visibility= "<?php print $button; ?>";
+ 
+ if (button == btn.hidden) {
+		document.getElementsByTagName('p').style.color="green";
+ 	} else {
+ 		"cosik nie wyszło";
+ 	}
+ 	
 })
 
-</script>
+</script> 
 <script src="script/funkcje.js" ></script>
 </body>
 </html>

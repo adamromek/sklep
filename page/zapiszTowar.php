@@ -27,8 +27,7 @@ include_once "db/connect.php";
  	              if ($indeks && $nazwa) 
  	               {
                        
-                        echo "<br /> Spróbuj ponownie <a href='index.php'>tutaj</a>";
-			echo "<table border=1>
+			echo "<table border=0.1>
 			<tr>
                         <th>Nr Faktury</th>
                         <th>Data zakupu</th>
@@ -72,8 +71,6 @@ include_once "db/connect.php";
 }
 }
 
-echo "<br />Indeks dostawcy:".$indeks_dost."<br />";
-echo " Nazwa dostawcy; ". $nazwa_dost."<br />";
 
 /***************************** wpiszemy dostawców  *******************************/
 		$stmt = $mysqli->prepare("SELECT id_dostawcy, indeks, nazwa1 FROM dostawcy WHERE nazwa1 = ? ");
@@ -106,7 +103,6 @@ $sprawdzF->close();
 	
 if($nr_faktury == $col1) 
 {	
-	printf("<br />Jest taka faktura : %s ", $col1 );
 
 	} else 
 	{
@@ -249,9 +245,9 @@ $mysqli->close()
 
 ?>
 <div id="form">
-<form action="index.php" method="post" enctype="multipart/form-data"> 
+<form action="index.php?go=pokazFakture" method="post" enctype="multipart/form-data"> 
 		<div id="buttonTow">              
-			<button id="btnTow">Wróć do dostawy </button>	 
+			<button id="btnTow">Pokaż fakturę </button>	 
 		</div>
 
 </div>
