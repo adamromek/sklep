@@ -128,7 +128,7 @@ $stmtt = $mysqli->prepare("SELECT id_towar, indeks, nazwa, cena_brutto FROM towa
 	{
 	
 $stmtts = $mysqli->prepare("INSERT INTO towar (indeks, nazwa, jm, pkwiu, vat, cena_brutto) VALUES (?,?,?,?,?,?)");
-
+$nazwa = $mysqli->real_escape_string($_POST['nazwa']);
 $stmtts->bind_param('ssssis',$indeks, $nazwa, $jm, $pkwiu, $vat, $cena_brutto);
 $stmtts->execute();
 $stmtts->close();
